@@ -1,4 +1,4 @@
-package com.example.kotsabo.myapplication
+package com.dimkots.kotsabo.myapplication
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle

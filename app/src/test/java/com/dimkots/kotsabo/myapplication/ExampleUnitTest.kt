@@ -1,4 +1,4 @@
-package com.example.kotsabo.myapplication
+package com.dimkots.kotsabo.myapplication
 
 import org.junit.Test
 
