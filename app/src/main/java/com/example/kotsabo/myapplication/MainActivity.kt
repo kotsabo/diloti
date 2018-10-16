@@ -70,11 +70,14 @@ class MainActivity : AppCompatActivity() {
         this.editText2.addTextChangedListener(generalTextWatcher)
 
         this.checkBox.setOnClickListener {
-            this.totalPoints = if (this.checkBox.isChecked) {
-                7
+            if (this.checkBox.isChecked) {
+                this.totalPoints = 7
+                this.checkBox.text = "7 Πόντοι"
             } else {
-                11
+                this.totalPoints = 11
+                this.checkBox.text = "11 Πόντοι"
             }
+            resetEditTexts()
         }
 
     }
