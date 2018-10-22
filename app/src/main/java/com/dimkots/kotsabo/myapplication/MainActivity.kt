@@ -69,16 +69,7 @@ class MainActivity : AppCompatActivity() {
         this.editText1.addTextChangedListener(generalTextWatcher)
         this.editText2.addTextChangedListener(generalTextWatcher)
 
-        this.checkBox.setOnClickListener {
-            if (this.checkBox.isChecked) {
-                this.totalPoints = 7
-                this.checkBox.text = "7 Πόντοι"
-            } else {
-                this.totalPoints = 11
-                this.checkBox.text = "11 Πόντοι"
-            }
-            resetEditTexts()
-        }
+        this.checkBox.setOnClickListener { checkBoxAction () }
 
     }
 
@@ -141,11 +132,29 @@ class MainActivity : AppCompatActivity() {
             this.recyclerView.adapter = this.adapter
             this.recyclerView.scrollToPosition(adapter.itemCount - 1)
 
-            resetEditTexts()
+            this.resetEditTexts()
         } catch (e: NumberFormatException) {
             Log.e("error", "wrong input")
         }
 
+    }
+
+
+    private fun checkBoxAction() {
+
+        if (this.checkBox.isChecked) {
+            this.totalPoints = 7
+            this.checkBox.text = "7 Πόντοι"
+        } else {
+            this.totalPoints = 11
+            this.checkBox.text = "11 Πόντοι"
+        }
+
+        if (this.editText1.hasFocus()) {
+            this.autoComplete(this.editText2, this.editText1)
+        } else if (this.editText2.hasFocus()) {
+            this.autoComplete(this.editText1, this.editText2)
+        }
     }
 
     private fun resetEditTexts() {
